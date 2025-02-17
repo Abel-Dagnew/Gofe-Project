@@ -5,31 +5,31 @@ import { FaLinkedin } from 'react-icons/fa';
 const teamMembers = [
   {
     name: 'Abel Dagnew',
-    role: 'Co-Founder & CEO',
+    role: 'Cloud Engineer',
     image: 'abel.jpg',
     description: 'Experienced entrepreneur with over 15 years in the tech industry, specializing in leadership and strategy.',
-    linkedin: 'https://www.linkedin.com/in/abeldagnew/',
+    linkedin: 'https://www.linkedin.com/in/abel-dagnew-948351224/',
   },
   {
     name: 'Bruhtesfa Enyew',
     role: 'Lead Developer',
     image: 'bruh.jpg',
     description: 'Skilled developer with expertise in full-stack web development, focusing on scalable applications and clean code.',
-    linkedin: 'https://www.linkedin.com/in/bruhtesfaenyew/',
+    linkedin: 'https://www.linkedin.com/in/bruhtesfa-enyew/',
   },
   {
     name: 'Amanuel Genetu',
-    role: 'UI/UX Designer',
+    role: 'DevOps Enineer',
     image: 'aman.jpg',
     description: 'Creative designer with a passion for creating intuitive and beautiful user interfaces that enhance user experiences.',
-    linkedin: 'https://www.linkedin.com/in/amanuelgenetu/',
+    linkedin: 'https://www.linkedin.com/in/amanuel-genetu-4b3761213/',
   },
   {
     name: 'Yosef Nakachew',
-    role: 'SEO Specialist',
+    role: 'UI/UX Designer',
     image: 'joc.jpg',
     description: 'SEO expert with a proven track record of increasing organic traffic through strategic on-page and off-page optimization.',
-    linkedin: 'https://www.linkedin.com/in/yosefnakachew/',
+    linkedin: 'https://www.linkedin.com/in/yosefdegarege/',
   },
 ];
 
@@ -43,7 +43,7 @@ const About = () => {
           Fejlesztő Technology Plc, founded in 2012, is a professional IT company that offers web design, SEO, software development, and IT services. We aim to push the limits of creativity and deliver high-quality work with fast turnaround times.
         </p>
       </div>
-      
+
       {/* Meet Our Team Section */}
       <div className="lg:w-1/2 text-center px-8 mt-12 lg:mt-0">
         <h3 className="text-4xl font-bold text-gray-800 mb-8">Meet Our Team</h3>
@@ -51,7 +51,7 @@ const About = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="relative group w-full sm:w-64 md:w-72 lg:w-80 xl:w-96 h-auto rounded-lg overflow-hidden shadow-lg bg-white-50 hover:w-full transition-all duration-300 flex flex-col items-center"
+              className="relative group w-full sm:w-64 md:w-72 lg:w-80 xl:w-96 h-auto rounded-lg overflow-hidden shadow-lg bg-white transition-all duration-300 flex flex-col items-center p-6"
             >
               {/* Image and Name Section */}
               <img
@@ -59,17 +59,17 @@ const About = () => {
                 alt={member.name}
                 className="w-32 h-32 object-cover rounded-full border-4 border-gray-300 shadow-md transition-transform duration-300"
               />
-              <h4 className="mt-4 text-2xl font-semibold text-gray-800 group-hover:text-white">{member.name}</h4>
-              <p className="text-lg text-gray-600 group-hover:text-gray-300">{member.role}</p>
-              
+              <h4 className="mt-4 text-2xl font-semibold text-gray-800">{member.name}</h4>
+              <p className="text-lg text-gray-600">{member.role}</p>
+
               {/* Hover Effect for Description */}
-              <div className="absolute inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 transform group-hover:scale-130 group-hover:h-full rounded-lg w-full h-full">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-15 h-15 object-cover rounded-full border-4 border-gray-300 shadow-md mb-4"
-                />
-                <h4 className="text-sm font-semibold">{member.name}</h4>
+              <div className="absolute inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 w-full h-full">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-15 h-15 object-cover rounded-full border-4 border-gray-300 shadow-md transition-transform duration-300"
+              />
+                <h4 className="text-lg font-semibold">{member.name}</h4>
                 <p className="text-sm font-light text-gray-300">{member.role}</p>
                 <p className="mt-4 text-md text-gray-200 text-center max-w-xs">{member.description}</p>
                 {/* LinkedIn Icon on Hover */}

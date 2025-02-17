@@ -1,38 +1,77 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.href = `mailto:abeltesfaye111@gmail.com?subject=${encodeURIComponent(
+      formData.subject
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
+    )}`;
+  };
+
   return (
-    <section className="contact py-20 bg-gray-50">
-      <div className="container text-center">
-        <h2 className="text-3xl font-bold">Contact Us</h2>
-        <form className="mt-6">
+    <section className="flex items-center justify-center min-h-screen bg-gray-100 px-6">
+      <div className="max-w-3xl w-full bg-white p-8 shadow-lg rounded-lg">
+        <h2 className="text-4xl font-bold text-center text-blue-700 mb-6">Contact Us</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            placeholder="Name"
-            className="block w-full px-4 py-2 mb-4 border rounded"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            required
           />
           <input
             type="email"
-            placeholder="Email"
-            className="block w-full px-4 py-2 mb-4 border rounded"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            required
           />
           <input
             type="text"
+            name="subject"
             placeholder="Subject"
-            className="block w-full px-4 py-2 mb-4 border rounded"
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            required
           />
           <textarea
+            name="message"
             placeholder="Write Your Message"
-            className="block w-full px-4 py-2 mb-4 border rounded"
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-lg h-32 resize-none focus:ring-2 focus:ring-blue-500"
+            required
           ></textarea>
-          <button className="px-6 py-2 bg-blue-600 text-white rounded">Send Message</button>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          >
+            Send Message
+          </button>
         </form>
-        <div className="mt-6">
-          <p className="text-lg">Address: 04 Giorgis Rd, Friendship building, 3rd Floor, Bahir Dar, Ethiopia</p>
-          <p className="text-lg">Phone: +251 9898 72 748</p>
-          <p className="text-lg">Email: info@fejleszto-tech.com</p>
+        <div className="mt-8 text-center text-gray-700">
+          <p><strong>Address:</strong> Krakow, Poland</p>
+          <p><strong>Phone:</strong> +48500200706</p>
+          <p><strong>Email:</strong> info@gofertechnologies.com</p>
         </div>
       </div>
     </section>
